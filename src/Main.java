@@ -8,12 +8,11 @@ public class Main {
     static int posicaoJogador;
 
     public static void main(String[] args) {
-        labirinto.getPosicoes().set(57, jogador);
+        labirinto.getPosicoes().set(1, jogador);
 
-        posicaoJogador = 57;
+        posicaoJogador = 1;
 
         do {
-            System.out.println(labirinto.getPosicoes().size());
             mostrarTabuleiro();
             System.out.println("""
                     \n
@@ -39,7 +38,7 @@ public class Main {
             }
             if (movimentoPossivel == 0) {
                 System.out.println("Jogada inválida!");
-            }else if(movimentoPossivel==65){
+            }else if(movimentoPossivel==150){
                 System.out.println("Você encontrou um obstaculo! ");
 
             }else{
@@ -53,14 +52,14 @@ public class Main {
     public static void mostrarTabuleiro() {
         for (int i = 0; i < labirinto.getPosicoes().size(); i++) {
             System.out.print(labirinto.getPosicoes().get(i) + " "); // Adicione um espaço entre as posições
-            if ((i + 1) % 8 == 0) {
+            if ((i + 1) % 11 == 0) {
                 System.out.println(); // Quebra de linha após cada linha de 8 posições
             }
         }
     }
 
     public static boolean ganhou() {
-        if (posicaoJogador == 6){
+        if (posicaoJogador == 117){
             mostrarTabuleiro();
             System.out.println("Você ganhou!");
 
