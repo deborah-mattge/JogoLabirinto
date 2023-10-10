@@ -38,7 +38,7 @@ public class Labirinto {
             else {
                 posicoes.add(i, "  ");
             }
-            System.out.println(i +" "+posicoes.get(i));
+            
         }
     }
 
