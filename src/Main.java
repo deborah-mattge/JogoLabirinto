@@ -24,25 +24,27 @@ public class Main {
             int movimentoPossivel = 0;
             switch (opcao) {
                 case "w":
-                    movimentoPossivel = Labirinto.moverParaCima(labirinto, posicaoJogador, jogador);
+                    movimentoPossivel = labirinto.moverParaCima(posicaoJogador, jogador);
                     break;
                 case "s":
-                    movimentoPossivel = Labirinto.moverParaBaixo(labirinto, posicaoJogador, jogador);
+                    movimentoPossivel = labirinto.moverParaBaixo(posicaoJogador, jogador);
                     break;
                 case "d":
-                    movimentoPossivel = Labirinto.moverParaDireita(labirinto, posicaoJogador, jogador);
+                    movimentoPossivel = labirinto.moverParaDireita(posicaoJogador, jogador);
                     break;
                 case "a":
-                    movimentoPossivel = Labirinto.moverParaEsquerda(labirinto, posicaoJogador, jogador);
+                    movimentoPossivel = labirinto.moverParaEsquerda(posicaoJogador, jogador);
                     break;
             }
             if (movimentoPossivel == 0) {
-                System.out.println("Jogada inválida!");
-            }else if(movimentoPossivel==150){
-                System.out.println("Você encontrou um obstaculo! ");
+                System.out.println("Você encontrou um obstáculo! ");
 
-            }else{
-                posicaoJogador= movimentoPossivel;
+            } else if (movimentoPossivel == 151) {
+                System.out.println("Você encontrou uma armadilha!");
+                posicaoJogador = 1;
+
+            } else {
+                posicaoJogador = movimentoPossivel;
             }
         } while (!ganhou());
 
@@ -59,11 +61,11 @@ public class Main {
     }
 
     public static boolean ganhou() {
-        if (posicaoJogador == 117){
+        if (posicaoJogador == 117) {
             mostrarTabuleiro();
             System.out.println("Você ganhou!");
 
-            return  true;
+            return true;
         }
         return false;
     }
