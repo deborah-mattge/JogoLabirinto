@@ -29,7 +29,6 @@ public class Labirinto {
             } else {
                 posicoes.add(i, "  ");
             }
-
         }
     }
 
